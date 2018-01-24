@@ -17,14 +17,14 @@ fn body_to_string(res: hyper::Response) -> Box<Future<Item=String, Error=hyper::
     Box::new(body)
 }
 
-pub struct Manager {
+pub struct RequestManager {
   core: Core
 }
 
-impl Manager {
-  pub fn new() -> Manager {
+impl RequestManager {
+  pub fn new() -> RequestManager {
     let core = Core::new().unwrap();
-    Manager { core }
+    RequestManager { core }
   }
 
   pub fn get(&mut self, uri: String) -> Result<String, hyper::Error> {

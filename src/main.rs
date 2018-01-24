@@ -3,10 +3,10 @@ extern crate hyper;
 extern crate tokio_core;
 
 mod manager;
-use manager::Manager;
+use manager::RequestManager;
 
 fn main() {
-    let mut manager = Manager::new();
+    let mut manager = RequestManager::new();
     let uri = String::from("http://jsonplaceholder.typicode.com/comments?postId=1&&id=1");
     match manager.get(uri.clone()) {
         Ok(resp) => println!("1 {}", resp),
