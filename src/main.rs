@@ -1,12 +1,12 @@
 extern crate futures;
-extern crate hyper;
+extern crate reqwest;
 extern crate tokio_core;
 
 mod manager;
 use manager::RequestManager;
 
 static TOKEN: &'static str ="EAAMMXECigFsBAFaJP3af4VvUqZBkVVCrRZAATZCqQ8pOPu37reum9eLCOsGskLnmZBvWS2MDKoy2jKBmluTJoH9ZBZBCLtycfrPGVtH69hbvlplnmEl3ssh8ykasEZCVeXxjFeCklWmkyzIUEPmWchbYZAgaX5yMZCjM6OEK7HxFAiwZDZD";
-static BASE_URI: &'static str = "http://graph.facebook.com/v2.11";
+static BASE_URI: &'static str = "https://graph.facebook.com/v2.11";
 static GROUP_ID: &'static str = "352110954925626";
 /*
     Graph base url
@@ -27,7 +27,7 @@ fn main() {
         Ok(resp) => println!("1 {}", resp),
         Err(_e) => println!("{:?}", _e)
     };
-
+    // println!("{}", manager.get_posts());
     // match manager.get(uri.clone()) {
     //     Ok(resp) => println!("2 {}", resp),
     //     Err(_e) => println!("{:?}", _e)
